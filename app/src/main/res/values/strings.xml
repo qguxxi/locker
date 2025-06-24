@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">locker</string>
+    <string name="sign_in">Tiếp tục đăng nhập với google</string>
 </resources>
