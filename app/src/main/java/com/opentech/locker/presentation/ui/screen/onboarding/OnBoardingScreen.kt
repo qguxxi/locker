@@ -56,7 +56,7 @@ fun OnBoardingScreen() {
             TermsAndPrivacyText(
                 onTermsClick = {
                     val intent =
-                        Intent(Intent.ACTION_VIEW, Uri.parse("https://synthlocker.com/terms"))
+                        Intent(Intent.ACTION_VIEW, Uri.parse("https://sites.google.com/view/locker-dieukhoansudung/trang-ch%E1%BB%A7"))
                     context.startActivity(intent)
                 },
                 onPrivacyClick = {
