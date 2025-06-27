@@ -1,7 +1,9 @@
 @file:Suppress("DEPRECATION")
 
-package com.synth.locker.presentation.ui.components
+package com.opentech.locker.presentation.ui.components
 
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.ClickableText
@@ -9,6 +11,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
@@ -20,9 +23,8 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun TermsAndPrivacyText(
     modifier: Modifier = Modifier,
-    onPrivacyClick: () -> Unit,
-    onTermsClick: () -> Unit
 ) {
+    val context = LocalContext.current
     val annotatedText = buildAnnotatedString {
         withStyle(SpanStyle(color = (MaterialTheme.colorScheme.onSurface), fontWeight = FontWeight.Medium)) {
             append("Bằng cách đăng nhập, bạn chấp nhận ")
@@ -53,9 +55,16 @@ fun TermsAndPrivacyText(
         onClick = { offset ->
             annotatedText.getStringAnnotations(start = offset, end = offset).firstOrNull()?.let {
                 when (it.tag) {
-                    "PRIVACY" -> onPrivacyClick()
-                    "TERMS" -> onTermsClick()
-                }
+                    "PRIVACY" -> {
+                        val intent =
+                        Intent(Intent.ACTION_VIEW, Uri.parse("https://sites.google.com/view/locker-chinhsachbaomat/trang-ch%E1%BB%A7"))
+                        context.startActivity(intent)
+                    }
+                    "TERMS" -> {
+                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://sites.google.com/view/locker-dieukhoansudung/trang-ch%E1%BB%A7"))
+                        context.startActivity(intent)
+                    }
+                    }
             }
         }
     )

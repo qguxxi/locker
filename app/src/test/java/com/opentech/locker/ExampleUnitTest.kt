@@ -1,4 +1,4 @@
-package com.synth.locker
+package com.opentech.locker
 
 import org.junit.Test
 

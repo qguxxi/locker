@@ -1,4 +1,4 @@
-package com.synth.locker.presentation.ui.theme
+package com.opentech.locker.presentation.ui.theme
 
 
 import android.os.Build

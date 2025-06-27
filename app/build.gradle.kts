@@ -2,14 +2,17 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("com.google.dagger.hilt.android")
+    id("kotlin-kapt")
+    id("com.google.devtools.ksp")
 }
 
 android {
-    namespace = "com.synth.locker"
+    namespace = "com.opentech.locker"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.synth.locker"
+        applicationId = "com.opentech.locker"
         minSdk = 29
         targetSdk = 35
         versionCode = 1
@@ -40,6 +43,13 @@ android {
 }
 
 dependencies {
+//    Google Play Services
+    implementation("com.google.android.gms:play-services-auth:21.3.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.9.1")
+
+
+    implementation(libs.dagger.hilt.android)
+    kapt(libs.dagger.hilt.android.compiler)
     implementation ("androidx.compose.ui:ui-text-google-fonts:1.6.0")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

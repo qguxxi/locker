@@ -1,4 +1,4 @@
-package com.synth.locker.presentation.ui.theme
+package com.opentech.locker.presentation.ui.theme
 import androidx.compose.ui.graphics.Color
 
 val primaryLight = Color(0xFF445E91)
