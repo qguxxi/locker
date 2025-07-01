@@ -9,17 +9,20 @@ plugins {
 
 android {
     namespace = "com.opentech.locker"
-    compileSdk = 35
-
+    compileSdk = 36
+    val googleClientId: String = project.findProperty("GOOGLE_CLIENT_ID").toString()
     defaultConfig {
+        android.buildFeatures.buildConfig = true
         applicationId = "com.opentech.locker"
         minSdk = 29
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
+        buildConfigField("String", "GOOGLE_CLIENT_ID", "\"$googleClientId\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
+
 
     buildTypes {
         release {
@@ -43,14 +46,28 @@ android {
 }
 
 dependencies {
+//    Splash Screen
+    implementation("androidx.core:core-splashscreen:1.0.1")
+    implementation("androidx.navigation:navigation-compose:2.7.7")
+
+//    AppCompat
+    implementation("androidx.appcompat:appcompat:1.7.1")
+
 //    Google Play Services
     implementation("com.google.android.gms:play-services-auth:21.3.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.9.1")
+    // Hilt
+    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
 
+
+
+
+    implementation("androidx.credentials:credentials:1.2.0")
 
     implementation(libs.dagger.hilt.android)
     kapt(libs.dagger.hilt.android.compiler)
-    implementation ("androidx.compose.ui:ui-text-google-fonts:1.6.0")
+
+    implementation ("androidx.compose.ui:ui-text-google-fonts:1.8.3")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

@@ -5,5 +5,4 @@ import dagger.hilt.android.HiltAndroidApp
 
 
 @HiltAndroidApp
-class LockerApplication : Application() {
-}
+class LockerApplication : Application()

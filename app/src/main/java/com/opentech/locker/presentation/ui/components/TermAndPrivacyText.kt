@@ -56,8 +56,7 @@ fun TermsAndPrivacyText(
             annotatedText.getStringAnnotations(start = offset, end = offset).firstOrNull()?.let {
                 when (it.tag) {
                     "PRIVACY" -> {
-                        val intent =
-                        Intent(Intent.ACTION_VIEW, Uri.parse("https://sites.google.com/view/locker-chinhsachbaomat/trang-ch%E1%BB%A7"))
+                        val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://sites.google.com/view/locker-chinhsachbaomat/trang-ch%E1%BB%A7"))
                         context.startActivity(intent)
                     }
                     "TERMS" -> {

@@ -1,4 +1,6 @@
-package com.opentech.locker.presentation.ui.screen.onboarding
+@file:Suppress("DEPRECATION")
+
+package com.opentech.locker.presentation.ui.screen.auth
 
 
 import androidx.compose.foundation.layout.Arrangement
@@ -21,9 +23,8 @@ import com.opentech.locker.presentation.ui.components.CTAButton
 import com.opentech.locker.presentation.ui.components.TermsAndPrivacyText
 
 @Composable
-fun OnBoardingScreen(
+fun SignInScreen(
     modifier: Modifier = Modifier,
-    onSignInClick: () -> Unit
 ) {
     Surface(
         color = MaterialTheme.colorScheme.surface,
@@ -41,12 +42,15 @@ fun OnBoardingScreen(
             )
             CTAButton(
                 textButton = R.string.sign_in,
-                onClick = onSignInClick
+                onClick = {
+
+                }
             )
             Spacer(modifier = Modifier.weight(0.2f))
             TermsAndPrivacyText()
         }
     }
+
 }
 
 @Composable
@@ -69,7 +73,7 @@ private fun OnBoardingContent(modifier: Modifier = Modifier) {
 @Preview(name = "Large Phone", device = Devices.PIXEL_6_PRO, showSystemUi = true)
 @Composable
 fun OnBoardingScreenPreview() {
-    OnBoardingScreen(onSignInClick = {})
+
 }
 
 // TODO: Add Baseline Profiles and enable R8 optimizations in your build.gradle for better performance.
